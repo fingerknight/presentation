@@ -1,0 +1,21 @@
+* Presentation
+包含了：
+- 个人的 org-beamer 的主题
+- TODO: 教案
+
+** Org-Beamer Theme
+| Light                     | Dark                     |
+| [[file:title-page-light.png]] | [[file:title-page-dark.png]] |
+| [[file:page-light.png]]       | [[file:page-dark.png]]       |
+
+东拼西凑的一个主题，有亮色和暗色，基于已有的配色方案的改编，感谢开发者的贡献！
+
+- 亮色 ~dustlight~ ：基于 [[https://github.com/balajisivaraman/emacs-one-themes][One Light Theme]]
+- 暗色 ~dustdark~ ：基于 [[https://github.com/dracula/beamer][Dracula Theme]]
+
+使用方法：
+1. 把 ~.sty~ 下载到本地，路经在 ~.org~ 的目录下，或者环境变量配置的路径中。
+2. 在 ~.org~ 中选择 Beamer 主题： ~#+BEAMER_THEME: dust~
+3. 选择颜色 ~#+BEAMER_COLOR_THEME: dustlight~ / ~#+BEAMER_COLOR_THEME: dustdark~
+
+如果不想要背景图或者想改，把 ~背景图片~ 那一块代码修改。

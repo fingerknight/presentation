@@ -1,0 +1,253 @@
+\mode<presentation>
+
+%% 需要的库
+\usepackage{xeCJK}
+
+%% 页面大小
+%% \RequirePackage{geometry}
+%% \geometry{paperheight=19.05cm, paperwidth=25.4cm}
+
+%% 颜色
+\definecolor{fgc}{HTML}{000000}
+\definecolor{bgc}{HTML}{ffffff}
+
+%% 文本的边距
+\setbeamersize{text margin left=2em, text margin right=2em}
+
+%% 背景图片
+\RequirePackage{tikz, graphicx}
+\setbeamertemplate{background}
+{\tikz\node[opacity=0.02]
+  {\includegraphics[height=\paperheight,width=\paperwidth,keepaspectratio]{YunRuBlack.jpg}};
+}
+
+%% 定义字体
+\setCJKmainfont{Source Han Serif CN}
+\setsansfont{Bookerly}
+\setmonofont{Fantasque Sans Mono}
+
+% 定义楷体
+\newfontfamily\LXGWen{LXGW WenKai}                    % 英文
+\newcommand{\LXGW}{\LXGWen\CJKfontspec{LXGW WenKai}}  % 中文
+
+% 定义等宽
+\RequirePackage{xcolor}
+\newfontfamily\MONOen{Fantasque Sans Mono}
+\newcommand{\mono}{\MONOen\CJKfontspec{LXGW WenKai Mono}}
+
+% 映射 \texttt 到等宽
+\renewcommand{\texttt}[1]{%
+  \mono{\colorbox{lightgray}{#1}}
+}
+
+% 字体设置
+\setbeamerfont{author}{family=\LXGW}
+\setbeamerfont{alerted text}{series=\bfseries}
+\usefonttheme[onlymath]{serif}  % 数学符号字体
+
+%% 颜色设置
+\setbeamercolor{background canvas}{bg = bgc}
+\setbeamercolor{normal text}{fg = fgc}
+\setbeamercolor{alerted text}{fg = yellow}
+
+\setbeamercolor{title}{fg = bgc, bg = orange}
+\setbeamercolor{frametitle}{fg = bgc, bg = purple}
+
+\setbeamercolor{subtitle}{fg = green, bg = bgc}
+
+\setbeamercolor{author}{fg = fgc}
+
+\setbeamercolor{date}{fg = purple}
+
+\setbeamercolor{section in toc}{fg = cyan}
+
+\setbeamercolor*{block title}{fg = bgc, bg = cyan}
+\setbeamercolor*{block title alerted}{fg = bgc, bg = red}
+\setbeamercolor*{block title example}{fg = bgc, bg = green}
+\setbeamercolor*{block body}{fg = fgc, bg = cyan!10!bgc}
+\setbeamercolor*{block body alerted}{fg = fgc, bg = red!10!bgc}
+\setbeamercolor*{block body example}{fg = fgc, bg = green!10!bgc}
+
+%% 超链接颜色
+\hypersetup{
+  colorlinks,
+  allcolors = .,
+  urlcolor = red,
+}
+
+%% 封面
+\defbeamertemplate*{title page}{}[1][colsep=-4bp, rounded=true]
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}\inserttitle\par
+    \end{beamercolorbox}%
+    
+    \begin{beamercolorbox}[ht=1.em, sep=0.1em, center,#1]{subtitle}
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    
+    \vskip1em\par
+    
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author}
+      \insertauthor
+    \end{beamercolorbox}
+    
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    
+  \endgroup
+  \vfill
+}
+
+%% 结尾
+\defbeamertemplate*{end page}{}[1][colsep=-4bp, rounded=true]
+{
+  \setbeamertemplate{headline}{\begin{beamercolorbox}[wd=\paperwidth, ht=1.5em, dp=1ex, center]{space in head/foot}\end{beamercolorbox}}
+  \setbeamertemplate{footline}{\begin{beamercolorbox}[wd=\paperwidth, ht=1.5em, dp=1ex, center]{space in head/foot}\end{beamercolorbox}}
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}
+      The End
+      \par
+    \end{beamercolorbox}%
+    
+    \begin{beamercolorbox}[ht=1.em, sep=0.1em, center,#1]{subtitle}
+      {\usebeamerfont{subtitle}
+        \usebeamercolor[fg]{subtitle}
+        Thanks for watching
+        \par}%
+    \end{beamercolorbox}%
+    
+  \endgroup
+  \vfill
+}
+\AtEndDocument{\usebeamertemplate{end page}}
+
+
+%% Blocks
+\setbeamertemplate{blocks}[rounded]
+
+%% 设置页眉页脚的颜色
+\setbeamercolor*{title in head/foot}{fg = bgc, bg = orange}
+\setbeamercolor*{date in head/foot}{fg = purple}
+\setbeamercolor*{section in head/foot}{fg = bgc, bg = cyan}
+\setbeamercolor*{page number in head/foot}{fg = fgc}
+\setbeamercolor*{space in head/foot}{fg = fgc}
+\setbeamercolor*{space-purple in head/foot}{fg = fgc, bg = purple}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+%% 关闭默认的导航栏
+\setbeamertemplate{navigation symbols}{}
+
+%% 设置页眉
+\defbeamertemplate*{headline}{ theme}{%
+  \leavevmode%
+  \hbox{%
+
+    \ifnum \theframenumber > 2
+
+    \begin{beamercolorbox}[wd=.5\paperwidth, ht=1.5em, dp=1ex, center, sep=0.1em]{section in head/foot}%
+      \usebeamerfont{section in head/foot}
+      \insertsectionhead
+    \end{beamercolorbox}%
+
+    \begin{beamercolorbox}[wd=.5\paperwidth, ht=1.5em, dp=1ex, center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}
+      \insertshorttitle
+    \end{beamercolorbox}%
+
+    \else
+    \ifnum \theframenumber = 2
+    %% 目录页，加一个空的彩色 head
+    \begin{beamercolorbox}[wd=\paperwidth, ht=1.5em, dp=1ex, center]{space-purple in head/foot}%
+    \end{beamercolorbox}%
+    \else
+    %% 封面不显示
+    \begin{beamercolorbox}[wd=\paperwidth, ht=1.5em, dp=1ex, center]{space in head/foot}%
+    \end{beamercolorbox}%
+    \fi
+    \fi
+  }%
+  \vskip0pt%
+}
+
+
+%% 设置页脚，主要是封面把日期放到右下角
+\defbeamertemplate*{footline}{ theme}{%
+\leavevmode%
+\hbox{%
+  
+  \begin{beamercolorbox}[wd=.5\paperwidth, ht=1.5em, dp=1ex, center]{space in head/foot}%
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.5\paperwidth, ht=1.5em, dp=1ex, center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \ifnum \theframenumber = 1
+    \insertdate
+    \fi
+  \end{beamercolorbox}%
+
+}%
+\vskip0pt%
+}
+
+%% 段落段后空格
+\setlength{\parskip}{1em}
+
+%% 代码块定义
+\RequirePackage{listings}
+\lstset{ 
+  basicstyle=\tiny\ttfamily, % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\small\color{lightgray},    % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it is 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{lightgray},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{fgc},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  keywordstyle=\color{pink},      % keyword style
+  commentstyle=\color{gray},   % comment style
+  stringstyle=\color{yellow}      % string literal style
+}
+
+%% 列表
+\setbeamertemplate{itemize item}{%
+  \color{pink}\raise 1.2pt\hbox{$\blacktriangleright$}
+}
+\setbeamertemplate{itemize subitem}{%
+  \small\color{pink}\raise 1pt\hbox{$\triangleright$}
+}
+\setbeamertemplate{enumerate item}{%
+  \color{pink}\hbox{\insertenumlabel.}
+}
+\setbeamertemplate{enumerate subitem}{%
+  \color{pink}\hbox{(\insertsubenumlabel)}
+}
+
+\mode
+<all>
