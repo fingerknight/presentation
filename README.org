@@ -23,7 +23,8 @@
 
 *** 使用方法
 1. 把 ~.sty~ 下载到本地，路经在 ~.org~ 的目录下，或者环境变量配置的路径中。
-2. 在 ~.org~ 中选择 Beamer 主题： ~#+BEAMER_THEME: dust~
-3. 选择颜色 ~#+BEAMER_COLOR_THEME: dustlight~ / ~#+BEAMER_COLOR_THEME: dustdark~
+2. 在 ~.org~ 中选择 Beamer 主题： ~#+BEAMER_THEME: dustlight~ / ~#+BEAMER_THEME: dustdark~
 
-如果不想要背景图或者想改，把 ~背景图片~ 那一块代码修改。
+*** 其他
+- 定义哪些模块用哪些颜色在 ~beamercolorthemedust.sty~, 而这些颜色具体是什么则直接定义在 ~beamerthemedustlight.sty~ 和 ~beamerthemedustdark.sty~ 即主题中，好处就是只用 ~#+BEAMER_THEME~ 就可以决定亮色还是暗色，否则需要再额外指定一个 color 的 theme
+- 如果不想要背景图或者想改，把 ~背景图片~ 那一块代码修改
